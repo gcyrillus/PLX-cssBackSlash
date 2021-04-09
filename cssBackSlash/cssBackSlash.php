@@ -20,17 +20,13 @@
             }
         }
 
+		
+		#Ajoute un caractére d'échappement devant chaque \ trouvé dans une feuille de style
         public function AdminSettingsEdittplFoot() {
             echo self::BEGIN_CODE;
 ?>
-//code
-
 $plgPlugin = $plxAdmin->plxPlugins->aPlugins['<?= __CLASS__ ?>'];
-
-
-if(substr($tpl, strrpos($tpl, '.') + 1) =='css') {
-	echo  '<script src="'.PLX_PLUGINS . '<?= __CLASS__ ?>/js/<?= __CLASS__ ?>.js"></script>';
-	}
+if(substr($tpl, strrpos($tpl, '.') + 1) =='css')	echo  '<script src="'.PLX_PLUGINS . '<?= __CLASS__ ?>/js/<?= __CLASS__ ?>.js"></script>';
 <?php
             echo self::END_CODE;
         }
