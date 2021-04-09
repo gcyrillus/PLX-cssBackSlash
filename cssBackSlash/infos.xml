@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+   <title>cssBackSlash</title>
+   <author>GC-nomade</author>
+   <version>0.1</version>
+   <date>09/04/2021</date>
+    <site>http://re7net.com</site>
+    <repository>https://github.com/gcyrillus</repository>
+   <description>Preserve les caracteres "\" dans vos fichiers de style lors de l'édition - (test: unicode  '\2630' ) -  Will escape "\" caracters to avoid loosing them while updating a CSS file.</description>
+</document>
