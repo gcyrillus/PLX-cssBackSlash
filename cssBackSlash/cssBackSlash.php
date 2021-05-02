@@ -43,7 +43,7 @@ echo  '<script src="'.PLX_PLUGINS . '<?= __CLASS__ ?>/js/<?= __CLASS__ ?>.js"></
             echo self::END_CODE;
         }
 		
-		#Ajoute un caractére d'échappement devant chaque \ trouvé dans une page static
+		#Ajoute un caractére d'échappement devant chaque \ trouvé dans la partie content d'une page article
         public function AdminArticleFoot() {
             echo self::BEGIN_CODE;
 ?>
