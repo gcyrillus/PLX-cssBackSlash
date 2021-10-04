@@ -1,13 +1,12 @@
 <?php
     if(!defined('PLX_ROOT')) {
-        die('Are you silly ?');
+        die('Oups!');
     }
 
     class cssBackSlash extends plxPlugin {
         const HOOKS = array(
             'AdminSettingsEdittplFoot',
-			'AdminStaticFoot',
-			'AdminArticleFoot',
+			'AdminPluginCss',
         );
         const BEGIN_CODE = '<?php' . PHP_EOL;
         const END_CODE = PHP_EOL . '?>';
@@ -31,26 +30,30 @@ $plgPlugin = $plxAdmin->plxPlugins->aPlugins['<?= __CLASS__ ?>'];
 if(substr($tpl, strrpos($tpl, '.') + 1) =='css')	echo  '<script src="'.PLX_PLUGINS . '<?= __CLASS__ ?>/js/<?= __CLASS__ ?>.js"></script>';
 <?php
             echo self::END_CODE;
-        }	
-		
-		#Ajoute un caractére d'échappement devant chaque \ trouvé dans une page static
-        public function AdminStaticFoot() {
-            echo self::BEGIN_CODE;
-?>
-$plgPlugin = $plxAdmin->plxPlugins->aPlugins['<?= __CLASS__ ?>'];
-echo  '<script src="'.PLX_PLUGINS . '<?= __CLASS__ ?>/js/<?= __CLASS__ ?>.js"></script>';
-<?php
-            echo self::END_CODE;
-        }
-		
-		#Ajoute un caractére d'échappement devant chaque \ trouvé dans la partie content d'une page article
-        public function AdminArticleFoot() {
-            echo self::BEGIN_CODE;
-?>
-$plgPlugin = $plxAdmin->plxPlugins->aPlugins['<?= __CLASS__ ?>'];
-echo  '<script src="'.PLX_PLUGINS . '<?= __CLASS__ ?>/js/<?= __CLASS__ ?>.js"></script>';
-<?php
-            echo self::END_CODE;
         }
 
+		#Ajoute un caractére d'échappement devant chaque \ trouvé dans les feuilles de styles des plugins
+        public function AdminPluginCss() {
+            echo self::BEGIN_CODE;
+?>
+			
+			?><script>
+			
+			window.onload = function() {
+				
+				let txta = document.querySelectorAll("textarea");
+				[...txta].forEach((content) => {
+				  let css = content.innerHTML;
+				  content.innerHTML =escapeRegex(css);
+				});
+			}				
+				function escapeRegex(string) {	
+					 return string.replace(/[\\]/g, '\\$&');
+				}
+
+			</script>
+<?php
+            echo self::END_CODE;
+        }		
+		
     }
