@@ -1,19 +1,16 @@
-(function () {
+(function (){
     window.onload = function() {
-        let txtA = document.querySelectorAll('[name="title"],[name="chapo"],[name="content"]');
-        
-        for (i=0;i<txtA.length;i++){  
-          if(txtA[i].tagName == 'INPUT'){
-            let content = txtA[i].value;
-            txtA[i].value=  escapeRegex(content); 
-          }
-          else {  let content = txtA[i].innerHTML;
-            txtA[i].innerHTML=  escapeRegex(content); 
-          } 	            
+        let escape = document.querySelectorAll('form input:not([type="submit"]), form textarea');
+        let form = document.querySelector('form');
+        function saveSlashes(str){
+            return str.replace(/[\\]/g, '\\$&');
         }
-        function escapeRegex(string) {	
-            return string.replace(/[\\]/g, '\\$&');
-        }
+        form.addEventListener('formdata',function(e){
+            let formData = e.formData;
+            for (i=0;i<escape.length;i++){ 
+                let content = escape[i].getAttribute("name");
+                formData.set(content, saveSlashes(formData.get(content))); 
+            }
+        });        
     }
-
-})();;
+})();
