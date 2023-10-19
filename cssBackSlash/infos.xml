@@ -2,10 +2,10 @@
 <document>
    <title>cssBackSlash</title>
    <author>GC-nomade</author>
-   <version>0.2</version>
-   <date>04/10/2021</date>
+   <version>2.0</version>
+   <date>19/10/2023</date>
     <site>http://re7net.com</site>
-    <repository>https://github.com/gcyrillus/PLX-cssBackSlash/tree/main</repository>
-   <description>Preserve les caracteres "\" dans vos fichiers de style lors de l'édition dans l'administration-/- Will escape "\" caracters to avoid loosing them while updating a CSS file from admin.</description>
+    <repository>https://github.com/gcyrillus/PLX-cssBackSlash/tree/v2.0</repository>
+   <description>Preserve les caracteres "\"  lors de l'édition dans l'administration-/- Will escape "\" caracters to avoid loosing them while updating a file from admin.</description>
    <scope>admin</scope>
 </document>
