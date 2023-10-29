@@ -1,5 +1,3 @@
-(function (){
-    window.onload = function() {
         let escape = document.querySelectorAll('form input:not([type="submit"]), form textarea');
         let form = document.querySelector('form');
         function saveSlashes(str){
@@ -11,6 +9,4 @@
                 let content = escape[i].getAttribute("name");
                 formData.set(content, saveSlashes(formData.get(content))); 
             }
-        });        
-    }
-})();
+        });
