@@ -7,6 +7,6 @@
             let formData = e.formData;
             for (i=0;i<escape.length;i++){ 
                 let content = escape[i].getAttribute("name");
-                formData.set(content, saveSlashes(formData.get(content))); 
+                if(formData.get(content) != null)   formData.set(content, saveSlashes(formData.get(content))); 
             }
         });
