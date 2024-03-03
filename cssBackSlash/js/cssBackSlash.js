@@ -1,4 +1,4 @@
-        let escape = document.querySelectorAll('form input:not([type="submit"]), form textarea');
+        let escape = document.querySelectorAll('form:not("#form_statics") input:not([type="submit"]), form textarea');
         let form = document.querySelector('form');
         function saveSlashes(str){
             return str.replace(/[\\]/g, '\\$&');
